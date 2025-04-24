@@ -8,7 +8,7 @@ describe('2nd Deliverable', () => {
         global.setFetchResponse(global.basePlants)
         const { getByPlaceholderText, findByText, getByText } = render(<App />)
 
-        const firstPlant = {name: 'foo', image: 'foo_plant_image_url', price: '10'}
+        const firstPlant = {name: 'foo', image: 'foo_plant_image_url', price: 10}
     
         global.setFetchResponse(firstPlant)
     
@@ -20,7 +20,7 @@ describe('2nd Deliverable', () => {
         expect(fetch).toHaveBeenCalledWith("http://localhost:6001/plants", {
             method: "POST",
             headers: {
-              "Content-Type": "Application/JSON",
+              "Content-Type": "application/json",
             },
             body: JSON.stringify(firstPlant),
         })
@@ -28,7 +28,7 @@ describe('2nd Deliverable', () => {
         const newPlant = await findByText('foo');
         expect(newPlant).toBeInTheDocument();
 
-        const secondPlant = {name: 'bar', image: 'bar_plant_image_url', price: '5'}
+        const secondPlant = {name: 'bar', image: 'bar_plant_image_url', price: 5}
     
         global.setFetchResponse(secondPlant)
     
@@ -40,7 +40,7 @@ describe('2nd Deliverable', () => {
         expect(fetch).toHaveBeenCalledWith("http://localhost:6001/plants", {
             method: "POST",
             headers: {
-              "Content-Type": "Application/JSON",
+              "Content-Type": "application/json",
             },
             body: JSON.stringify(secondPlant),
         })
